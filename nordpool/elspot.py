@@ -42,15 +42,15 @@ class Prices(Base):
 
         # All relevant data is in data['data']
         data = data['data']
-        start_time = self._parse_dt(data['DataStartdate'])
-        end_time = self._parse_dt(data['DataEnddate'])
-        updated = self._parse_dt(data['DateUpdated'])
+        start_time = str(self._parse_dt(data['DataStartdate']))
+        end_time = str(self._parse_dt(data['DataEnddate']))
+        updated = str(self._parse_dt(data['DateUpdated']))
 
         area_data = {}
         # Loop through response rows
         for r in data['Rows']:
-            row_start_time = self._parse_dt(r['StartTime'])
-            row_end_time = self._parse_dt(r['EndTime'])
+            row_start_time = str(self._parse_dt(r['StartTime']))
+            row_end_time = str(self._parse_dt(r['EndTime']))
 
             # Loop through columns
             for c in r['Columns']:
